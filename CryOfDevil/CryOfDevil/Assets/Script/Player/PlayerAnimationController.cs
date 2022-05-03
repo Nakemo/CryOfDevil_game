@@ -9,10 +9,10 @@ public class PlayerAnimationController : MonoBehaviour
 
     [SerializeField]
     private int _VelocityZ;
-    private float _maxWalkSpeed = 0.4f;
-    private float _maxRunSpeed = 2f;
-    private float acceleration = 2f;
-    private float deceleration = 2f;
+    private float _maxWalkSpeed = 0.4f; 
+    private float _maxRunSpeed = 2f; 
+    private float acceleration = 2f; 
+    private float deceleration = 2f; 
 
     private float _animationSpeed = 0f;
 
@@ -23,8 +23,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();        
-        _VelocityZ = Animator.StringToHash("Velocity");        
+        animator = GetComponent<Animator>();      
+        _VelocityZ = Animator.StringToHash("Velocity");         
     }
 
 
@@ -38,24 +38,24 @@ public class PlayerAnimationController : MonoBehaviour
 
     void HandleMovement(bool IsWalking, bool IsRunning) 
     {
-        if (IsWalking && _animationSpeed < _maxWalkSpeed) 
+        if (IsWalking && _animationSpeed < _maxWalkSpeed)
         {
             _animationSpeed += Time.deltaTime * acceleration; 
         }
 
         if (IsWalking && IsRunning && _animationSpeed < _maxRunSpeed)
         {
-            _animationSpeed += Time.deltaTime * acceleration;
+            _animationSpeed += Time.deltaTime * acceleration; //velocidade da animacao += tempo real * aceleracao 
         }
         
-        if (!IsRunning && _animationSpeed > 0.5f)
+        if (!IsRunning && _animationSpeed > 0.4f)
         {
-            _animationSpeed -= Time.deltaTime * deceleration;
+            _animationSpeed -= Time.deltaTime * deceleration; 
         }
 
         if (!IsWalking && _animationSpeed > 0f)
         {
-            _animationSpeed -= Time.deltaTime * deceleration;
+            _animationSpeed -= Time.deltaTime * deceleration;   
         }
 
         animator.SetFloat(_VelocityZ, _animationSpeed);

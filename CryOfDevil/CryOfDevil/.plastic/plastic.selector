@@ -1,0 +1,4 @@
+repository "CryOfDevil@BetaFrame_Studios@cloud"
+  path "/"
+    br "/main"
+    co "/main"
