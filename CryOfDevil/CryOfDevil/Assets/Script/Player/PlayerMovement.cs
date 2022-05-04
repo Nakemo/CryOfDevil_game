@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float forwardSpeed_ = 4f;
     private float strafeSpeed_ = 4f;
+        //controle de gravidade
+    private float gravity = -4.5f;
+    private Vector3 velocityY;
 
 
     void Start() //onde comeca tudo do game - starto o game tudo comeca junto 
@@ -38,18 +41,28 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");        
              
         HandlePlaceMovements(horizontal, vertical);
+        HandleGravity();
     }
 
     void HandlePlaceMovements(float horizontal, float vertical)
     {        
         forward = vertical * forwardSpeed_ * transform.forward;
         strafe = horizontal * strafeSpeed_ * transform.right;
-                 
+                
         Vector3 finalVelocity = forward + strafe;
 
         WalkToRun();
 
         _controller.Move(finalVelocity * Time.deltaTime);
+    }
+
+    void HandleGravity() 
+    {
+        if (!_controller.isGrounded) 
+        {
+            velocityY.y += gravity * Time.deltaTime;
+            _controller.Move(velocityY);
+        }
     }
 
     void WalkToRun()

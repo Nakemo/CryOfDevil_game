@@ -19,10 +19,16 @@ public class FirstPersonCamera : MonoBehaviour
     
     public bool firstPerson = true;
 
+    private PauseMenu _pMenu;
+
     void Start()
     {
-        Cursor.visible = false; // pra tirar o mouse da tela
-        Cursor.lockState = CursorLockMode.Locked; // que o mouse nao saia do centro quando movimentado dentro da aplicação em exe.               
+        // pra tirar o mouse da tela
+        Cursor.visible = false; 
+        // que o mouse nao saia do centro quando movimentado dentro da aplicação em exe.
+        Cursor.lockState = CursorLockMode.Locked;
+        // inicia colentando o componente de Pause Menu
+        _pMenu = GetComponent<PauseMenu>();
     }
 
     // método que faz um objeto ser acompanhado com uma atualização de posição "tempo real"
@@ -37,6 +43,7 @@ public class FirstPersonCamera : MonoBehaviour
         // Duas variaveis que armazenam o deslocamento do mouse na movimentação.
         float verticalDelta = Input.GetAxisRaw("Mouse Y") * sensitivityY;
         float horizontalDelta = Input.GetAxisRaw("Mouse X") * sensitivityX;
+        bool escapeKey = Input.GetKeyDown(KeyCode.Escape);
 
         rotationX += horizontalDelta;
         rotationY += verticalDelta;
@@ -47,8 +54,21 @@ public class FirstPersonCamera : MonoBehaviour
         //fazer o player se movimantar na mesma diração que a camera aponta
         characterBody.localEulerAngles = new Vector3(0, rotationX, 0);
 
-
-
         transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+
+        HandleToPause(escapeKey);
+    }
+
+    private void HandleToPause(bool escapeKey) 
+    {
+        if (_pMenu == true)
+        {
+            Time.timeScale = 0f;
+        }
+        if (_pMenu == false) 
+        {
+            Time.timeScale = 1;
+        }
+
     }
 }
