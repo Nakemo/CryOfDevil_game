@@ -7,23 +7,25 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController _controller;
     private PlayerAnimationController _playerAnim;
 
+
+    //------RUNNING HANDLE VARIABLES---------
     [SerializeField]
-    private float _Speed = 10f;
+    private float _Speed = 3f;
     [SerializeField]
-    private float _maxSpeed = 6f;
+    private float _maxSpeed = 3f;
     [SerializeField]
-    private float _minSpeed = 2f;
-    private float _accelerationSpeed = 10f;
-    private float _decelerationSpeed = 10f;
+    private float _minSpeed = 3f;
+    private float _accelerationSpeed = 3f;
+    private float _decelerationSpeed = 3f;
+    //---------------------------------------
+
 
     Vector3 forward;
     Vector3 strafe;
     Vector3 vertical;
 
-    Vector3 _Running;
-
-    private float forwardSpeed_ = 4f;
-    private float strafeSpeed_ = 4f;
+    private float forwardSpeed_ = 3f;
+    private float strafeSpeed_ = 3f;
         //controle de gravidade
     private float gravity = -4.5f;
     private Vector3 velocityY;
@@ -38,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     void Update() //update do momento
     {
         float vertical = Input.GetAxisRaw("Vertical");
-        float horizontal = Input.GetAxisRaw("Horizontal");        
+        float horizontal = Input.GetAxisRaw("Horizontal");
              
         HandlePlaceMovements(horizontal, vertical);
         HandleGravity();
@@ -53,7 +55,27 @@ public class PlayerMovement : MonoBehaviour
 
         WalkToRun();
 
-        _controller.Move(finalVelocity * Time.deltaTime);
+        _controller.Move(finalVelocity * _Speed * Time.deltaTime);
+    }
+
+    void WalkToRun()
+    {
+        if (_playerAnim.IsRunning && _Speed < _maxSpeed) 
+        {
+            _Speed += _accelerationSpeed * Time.deltaTime;
+        }
+
+        if (!_playerAnim.IsRunning && _Speed > _minSpeed) 
+        {
+            if (_Speed < _minSpeed)
+            {
+                _Speed = _minSpeed;
+            }
+            else {
+                _Speed -= _decelerationSpeed * Time.deltaTime;
+            }
+        }
+
     }
 
     void HandleGravity() 
@@ -65,24 +87,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void WalkToRun()
-    {
-        if (_playerAnim.IsRunning && _Speed < _maxSpeed)
-        {
-            _Speed += _accelerationSpeed * Time.deltaTime;
-        }
-
-        if (!_playerAnim.IsRunning && _Speed > _minSpeed)
-        {
-            if (_Speed < _minSpeed)
-            {
-                _Speed = _minSpeed;
-            }
-            else
-            {
-                _Speed -= _decelerationSpeed * Time.deltaTime;
-            }
-        }
-    }
 }
 
