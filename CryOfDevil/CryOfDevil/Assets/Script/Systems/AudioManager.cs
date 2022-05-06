@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    private Sound[] sounds;
 
-    void Start()
+    public Sound[] Sounds { get => sounds; set => sounds = value; }
+
+    void Awake()
     {
-        
+        foreach (Sound s in souunds) 
+        {
+            
+        }
     }
 
     void Update()
