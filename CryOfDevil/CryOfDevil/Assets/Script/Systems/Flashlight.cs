@@ -6,6 +6,8 @@ public class Flashlight : MonoBehaviour
 {
     
     public GameObject WhiteLight;
+    public AudioSource ClickOn;
+    public AudioSource ClickOff;
     private bool lightActive = true;
         
     void Start() 
@@ -22,10 +24,12 @@ public class Flashlight : MonoBehaviour
             {
                 WhiteLight.gameObject.SetActive(false);
                 lightActive = false;
+                ClickOff.Play();
             }
             else {
                 WhiteLight.gameObject.SetActive(true);
                 lightActive = true;
+                ClickOn.Play();
             }
         }
     }

@@ -6,6 +6,7 @@ public class FirstPersonCamera : MonoBehaviour
 {
     public Transform characterBody;
     public Transform characterHead;
+    public Transform characterLight;
     
 
     public float sensitivityY = 2.5f;
@@ -16,38 +17,31 @@ public class FirstPersonCamera : MonoBehaviour
     float rotationY = 0;
 
     float angleYmin = -65;
-    float angleYmax = 70;
-    
-    public bool firstPerson = true;
-
-    private PauseMenu _pMenu;
+    float angleYmax = 70;        
 
     void Start()
     {
         // pra tirar o mouse da tela
         Cursor.visible = false; 
         // que o mouse nao saia do centro quando movimentado dentro da aplicação em exe.
-        Cursor.lockState = CursorLockMode.Locked;
-        // inicia colentando o componente de Pause Menu
-        _pMenu = GetComponent<PauseMenu>();
+        Cursor.lockState = CursorLockMode.Locked;        
     }
 
     // método que faz um objeto ser acompanhado com uma atualização de posição "tempo real"
     private void LateUpdate()
     {
-        transform.position = characterHead.position;
+        transform.position = characterHead.position;     
     }
 
 
     void Update()
     {
         // Duas variaveis que armazenam o deslocamento do mouse na movimentação.
-        float verticalDelta = Input.GetAxisRaw("Mouse Y") * sensitivityY;
+        //float verticalDelta = Input.GetAxisRaw("Mouse Y") * sensitivityY;
         float horizontalDelta = Input.GetAxisRaw("Mouse X") * sensitivityX;
-        bool escapeKey = Input.GetKeyDown(KeyCode.Escape);
 
         rotationX += horizontalDelta;
-        rotationY += verticalDelta;
+        //rotationY += verticalDelta;
 
         //limitador de rotação de camera
         rotationY = Mathf.Clamp(rotationY, angleYmin, angleYmax);
@@ -55,21 +49,6 @@ public class FirstPersonCamera : MonoBehaviour
         //fazer o player se movimantar na mesma diração que a camera aponta
         characterBody.localEulerAngles = new Vector3(0, rotationX, 0);        
 
-        transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
-
-        HandleToPause(escapeKey);
-    }
-
-    private void HandleToPause(bool escapeKey) 
-    {
-        if (_pMenu == true)
-        {
-            Time.timeScale = 0f;
-        }
-        if (_pMenu == false) 
-        {
-            Time.timeScale = 1;
-        }
-
+        transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);      
     }
 }
