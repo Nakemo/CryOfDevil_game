@@ -7,20 +7,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController _controller;
     private PlayerAnimationController _playerAnim;
 
-    //-----Fixing Camera Rotation with player and flashlight----
-    [SerializeField]
-    private Camera playerCamera;
-    private float sensitivityY = 2.5f;
-    private float sensitivityX = 2.5f;
-    
-    private float rotationX = 0f;
-    private float rotationY = 0f;
-
-    private float angleYmin = -65;
-    private float angleYmax = 70;
-    //----------------------------------------------------------
-
-
     //------RUNNING HANDLE VARIABLES---------
     [SerializeField]
     private float _Speed = 3f;
@@ -48,32 +34,15 @@ public class PlayerMovement : MonoBehaviour
     {
         _controller = GetComponent<CharacterController>();
         _playerAnim = GetComponent<PlayerAnimationController>();
-
-        //retirar o mouse da tela
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void Update()
     {
         float vertical = Input.GetAxisRaw("Vertical");
         float horizontal = Input.GetAxisRaw("Horizontal");
-        //Camera Sensitivity
-        float verticalDelta = Input.GetAxisRaw("Mouse Y") * sensitivityY;
-        float horizontalDelta = Input.GetAxisRaw("Mouse X") * sensitivityX;         
-
+          
         HandlePlaceMovements(horizontal, vertical);
-        HandleCamera(verticalDelta, horizontalDelta);
         HandleGravity();        
-    }
-
-    void HandleCamera(float verticalDelta, float horizontalDelta) 
-    {
-        rotationX += horizontalDelta;
-        rotationY += verticalDelta;
-        
-        rotationY = Mathf.Clamp(rotationY, angleYmin, angleYmax);
-        playerCamera.transform.localRotation = Quaternion.Euler(-rotationY, rotationX, 0); 
     }
 
     void HandlePlaceMovements(float horizontal, float vertical)
