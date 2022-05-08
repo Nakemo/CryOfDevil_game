@@ -5,7 +5,8 @@ using UnityEngine;
 public class FirstPersonCamera : MonoBehaviour
 {
     public Transform characterBody;
-    public Transform characterHead;   
+    public Transform characterHead;
+    
 
     public float sensitivityY = 2.5f;
     public float sensitivityX = 2.5f;
@@ -34,7 +35,7 @@ public class FirstPersonCamera : MonoBehaviour
     // método que faz um objeto ser acompanhado com uma atualização de posição "tempo real"
     private void LateUpdate()
     {
-        transform.position = characterHead.position;        
+        transform.position = characterHead.position;
     }
 
 
@@ -52,7 +53,7 @@ public class FirstPersonCamera : MonoBehaviour
         rotationY = Mathf.Clamp(rotationY, angleYmin, angleYmax);
 
         //fazer o player se movimantar na mesma diração que a camera aponta
-        characterBody.localEulerAngles = new Vector3(0, rotationX, 0);
+        characterBody.localEulerAngles = new Vector3(0, rotationX, 0);        
 
         transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
 
