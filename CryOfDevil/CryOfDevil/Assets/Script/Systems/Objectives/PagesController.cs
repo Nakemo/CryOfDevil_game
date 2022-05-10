@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PagesController : MonoBehaviour
 {
-    public PlayerConfig playerConfig;
-    public GameObject[] pages;
+    private PlayerConfig playerConfig;
+    public bool[] pages;
     
     void Start()
     {
-        playerConfig = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConfig>();
-        pages = GameObject.FindGameObjectsWithTag("Pages");
+        playerConfig = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConfig>();        
     }
 
     

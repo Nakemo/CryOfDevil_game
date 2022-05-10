@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JumpscareController : MonoBehaviour
 {
-    public Animator _jumpscareAnim;
+    public Animator _jumpscareAnim;       
 
     void start() 
     {
@@ -13,6 +13,13 @@ public class JumpscareController : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        _jumpscareAnim.SetBool("Scary", true);       
+        _jumpscareAnim.SetBool("Scary", true);
+        
     }
+
+    void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
+    {
+        Destroy(animator.gameObject);
+    }
+
 }

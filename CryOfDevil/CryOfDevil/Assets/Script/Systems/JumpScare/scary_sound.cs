@@ -6,22 +6,22 @@ using UnityEngine.Audio;
 public class scary_sound : MonoBehaviour
 {
     public AudioClip SoundToPlay; 
-    public float Volume;
-    AudioSource audio;
-    public bool alreadyPlayed = false;
+    public float Volume; 
+    AudioSource audio; 
+    public bool alreadyPlayed = false; 
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>(); 
     }
 
 
-    void OnTriggerEnter()
+    void OnTriggerEnter() 
     {
-        if (!alreadyPlayed)
+        if (!alreadyPlayed) 
         {
-            audio.PlayOneShot(SoundToPlay, Volume);
-            alreadyPlayed = true;
+            audio.PlayOneShot(SoundToPlay, Volume); 
+            alreadyPlayed = true; 
         }
     }
 }

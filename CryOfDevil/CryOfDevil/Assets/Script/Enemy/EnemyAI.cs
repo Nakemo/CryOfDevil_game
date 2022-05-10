@@ -1,32 +1,50 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public class EnemyAI : MonoBehaviour
-//{
-//    public float maxDistanceFromPlayer;
-//    public float minDistanceFromPlayer;
-//    public float currentDistanceFromPlayer;
+public class EnemyAI : MonoBehaviour
+{
+    private PlayerMovement player;
+    public float radiusToSpawn = 30;
+    public Renderer meshEnemy;
+    private bool spawned;
 
-//    public GameObject player;
+    void Start() 
+    { 
+        player = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
+        meshEnemy.enabled = false;
+    }
 
-//    void Start() 
-//    { 
+    void Update() 
+    {
+        transform.LookAt(player.transform);
+
+        if (Input.GetKeyDown(KeyCode.P)) 
+        {
+            Spawn();
+        }
+    }
+
+    public void Spawn() 
+    {
+        meshEnemy.enabled = false;      
+        Vector3 positionToGo = player.transform.position;
+
+        positionToGo.x += Random.Range(-radiusToSpawn, radiusToSpawn);
+        positionToGo.z += Random.Range(-radiusToSpawn, radiusToSpawn);
         
-//    }
+        positionToGo.y = Terrain.activeTerrain.SampleHeight(positionToGo);
 
-//    void Update() 
-//    {
-//        currentDistanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
+        transform.position = positionToGo;
+        spawned = true;
+    }
 
-//        if (currentDistanceFromPlayer < maxDistanceFromPlayer) 
-//        {
-//            TransformEnemy;
-//        }
-//    }
-
-//    void TransformEnemy() 
-//    {
-//        transform.LookAt(player.transform.position);
-//    }
-//}
+    void OnBecameInvisible() 
+    {
+        if (spawned) 
+        {
+            meshEnemy.enabled = true;
+            spawned = false;
+        }        
+    }
+}
