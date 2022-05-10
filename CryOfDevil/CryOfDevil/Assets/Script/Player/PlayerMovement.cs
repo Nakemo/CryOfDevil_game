@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -37,8 +38,15 @@ public class PlayerMovement : MonoBehaviour
     //----PlayerLife----
     public Renderer feedBackEnemy;
     public float scare = 0;
-    public float recoverscare;    
+    public float recoverscare;
     //------------------
+
+    //----Soundcontroller---
+    public AudioClip walk;
+    public AudioClip Run;
+
+    public AudioSource effectSound;
+    public AudioClip enemySound;
 
 
     void Start()
@@ -55,8 +63,10 @@ public class PlayerMovement : MonoBehaviour
         if (scare > 0) 
         {
             scare -= recoverscare;
-            if (scare < 0) 
-                    scare = 0;
+            if (scare < 0)
+            {
+                scare = 0;
+            }
 
         }
         SetFeedBackAlpha(scare);
@@ -133,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die() 
     {
-        Debug.Log("You Die");
+        Application.LoadLevel("EndGameLose");
     }
 }
 

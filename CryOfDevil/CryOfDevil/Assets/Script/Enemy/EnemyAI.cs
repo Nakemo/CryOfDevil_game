@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        Ray tempRay = new Ray(transform.position, fwd);
+        Ray tempRay = new Ray(transform.position+new Vector3(0,transform.localScale.y/2,0), fwd);
         bool rayCastFail = true;
         RaycastHit hitInfo;
 
