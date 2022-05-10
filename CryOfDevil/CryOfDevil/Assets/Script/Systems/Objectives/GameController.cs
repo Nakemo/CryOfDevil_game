@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -15,7 +16,10 @@ public class GameController : MonoBehaviour
  
     void Update()
     {
-        
+        if (totalObjectivesOk == totalObjectives) 
+        {
+            Application.LoadLevel("WinGame");
+        }
     }
 
     public int GetTotalObjective() 

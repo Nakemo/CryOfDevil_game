@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die() 
     {
-        Application.LoadLevel("EndGameLose");
+        Application.LoadLevel("EndGame");
     }
 }
 

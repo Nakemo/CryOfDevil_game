@@ -80,6 +80,9 @@ public class EnemyAI : MonoBehaviour
 
     public void Spawn() 
     {
+        if (gameController.totalObjectivesOk <= 0)
+            return;
+
         meshEnemy.enabled = false;      
         Vector3 positionToGo = player.transform.position;
 

@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class EndGameController : MonoBehaviour
 {
+
+    void start() 
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     [Header("Levels To Load")]
     public string retry_;
     public string backToMenu;

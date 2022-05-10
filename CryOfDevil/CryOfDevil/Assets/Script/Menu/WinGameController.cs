@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinGameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Levels To Load")]
+    public string nameLevel;
+
+    public void MenuButton()
     {
-        
+        SceneManager.LoadScene(nameLevel);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ExitButton()
     {
-        
+        Application.Quit();
     }
 }
