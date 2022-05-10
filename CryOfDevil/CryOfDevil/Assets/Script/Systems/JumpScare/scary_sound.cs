@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class scary_sound : MonoBehaviour
 {
-    public AudioClip SoundToPlay;
+    public AudioClip SoundToPlay; 
     public float Volume;
     AudioSource audio;
     public bool alreadyPlayed = false;
