@@ -18,7 +18,12 @@ public class PlayerMovement : MonoBehaviour
     private float _decelerationSpeed = 3f;
     //---------------------------------------
 
+    private Ray rayToInteract;
+    private RaycastHit hitInteract;
+    public float rangeInteract;
+        
 
+    //--------------------------
     Vector3 forward;
     Vector3 strafe;
     Vector3 vertical;
@@ -29,18 +34,50 @@ public class PlayerMovement : MonoBehaviour
     private float gravity = -4.5f;
     private Vector3 velocityY;
 
+    //----PlayerLife----
+    public Renderer feedBackEnemy;
+    public float scare = 0;
+    public float recoverscare;    
+    //------------------
+
 
     void Start()
     {
         _controller = GetComponent<CharacterController>();
-        _playerAnim = GetComponent<PlayerAnimationController>();
+        _playerAnim = GetComponent<PlayerAnimationController>();      
     }
 
     void Update()
     {
         float vertical = Input.GetAxisRaw("Vertical");
         float horizontal = Input.GetAxisRaw("Horizontal");
-          
+
+        if (scare > 0) 
+        {
+            scare -= recoverscare;
+            if (scare < 0) 
+                    scare = 0;
+
+        }
+        SetFeedBackAlpha(scare);
+
+        if (scare >=1) 
+        {
+            Die();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) 
+        {
+            rayToInteract = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            if (Physics.Raycast(rayToInteract, out hitInteract, rangeInteract)) 
+            {
+                if (hitInteract.collider.tag == "Pages") 
+                {
+                    hitInteract.collider.GetComponent<ObjectiveController>().Interact();
+                }
+            }
+        }
+
         HandlePlaceMovements(horizontal, vertical);
         HandleGravity();        
     }
@@ -86,5 +123,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void SetFeedBackAlpha(float alpha) 
+    {
+        Color currentAlpha = feedBackEnemy.material.color;
+        currentAlpha.a = alpha;
+
+        feedBackEnemy.material.color = currentAlpha;
+    }
+
+    private void Die() 
+    {
+        Debug.Log("You Die");
+    }
 }
 

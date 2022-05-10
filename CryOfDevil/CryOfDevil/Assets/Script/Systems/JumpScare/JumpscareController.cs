@@ -1,25 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class JumpscareController : MonoBehaviour
-{
-    public Animator _jumpscareAnim;       
+//public class JumpscareController : MonoBehaviour
+//{
+//    public GameObject _animation; 
+//    int contadorAnimacao = 0;
 
-    void start() 
-    {
-        _jumpscareAnim = this.transform.parent.GetComponent<Animator>();
-    }
+//    Animator _jumpscareAnim
 
-    void OnTriggerEnter()
-    {
-        _jumpscareAnim.SetBool("Scary", true);
-        
-    }
+//    void start() 
+//    {
+//        _jumpscareAnim = this.transform.parent.GetComponent<Animator>();
+//    }
 
-    void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
-    {
-        Destroy(animator.gameObject);
-    }
+//    void OnTriggerEnter()
+//    {
 
-}
+//        if (contadorAnimacao = 0) {
+//                Animacao 
+//            contadorAnimacao = 1;
+//        }
+
+//       if (contadorAnimacao = 1)
+//       {
+
+//       }
+//    }
+//}

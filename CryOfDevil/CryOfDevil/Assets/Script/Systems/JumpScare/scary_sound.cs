@@ -21,7 +21,7 @@ public class scary_sound : MonoBehaviour
         if (!alreadyPlayed) 
         {
             audio.PlayOneShot(SoundToPlay, Volume); 
-            alreadyPlayed = true; 
+            alreadyPlayed = true;
         }
     }
 }

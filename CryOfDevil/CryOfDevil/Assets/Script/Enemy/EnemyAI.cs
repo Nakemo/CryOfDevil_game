@@ -5,23 +5,59 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     private PlayerMovement player;
+    //--------------------------
     public float radiusToSpawn = 30;
+    public float minimusRadius = 5;
+    private float currentRadiusToSpawn;
     public Renderer meshEnemy;
     private bool spawned;
+    public float scareFactory = 0.01f;
+    private float currentScareFactory;
+    //--------------------------
+    public float distanceToAfact;
+    private float distancePlayer;
+
+    //--------------------------
+    private GameController gameController;
+
+    //----controlling spawn
+    public float timeToSpawn;
+    private float currentTimeToSpawn;
+
+
 
     void Start() 
     { 
         player = FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
         meshEnemy.enabled = false;
+        gameController = FindObjectOfType(typeof(GameController)) as GameController;
+
+        currentScareFactory = scareFactory;
+        currentRadiusToSpawn = radiusToSpawn;
     }
 
     void Update() 
     {
         transform.LookAt(player.transform);
 
-        if (Input.GetKeyDown(KeyCode.P)) 
+        currentTimeToSpawn += Time.deltaTime;
+        if (currentTimeToSpawn > timeToSpawn && gameController.totalObjectivesOk > 0) 
         {
+            currentTimeToSpawn = 0;
+
             Spawn();
+        }
+
+        distancePlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distancePlayer < distanceToAfact && meshEnemy.isVisible) 
+        {
+            player.scare += currentScareFactory / distancePlayer;
+        }
+
+        //damage math enemy to player
+        if (gameController.totalObjectivesOk > 0) 
+        {
+            currentRadiusToSpawn = radiusToSpawn - (radiusToSpawn / gameController.GetTotalObjective() * gameController.totalObjectivesOk);
         }
     }
 
@@ -30,8 +66,8 @@ public class EnemyAI : MonoBehaviour
         meshEnemy.enabled = false;      
         Vector3 positionToGo = player.transform.position;
 
-        positionToGo.x += Random.Range(-radiusToSpawn, radiusToSpawn);
-        positionToGo.z += Random.Range(-radiusToSpawn, radiusToSpawn);
+        positionToGo.x += Random.Range(-currentRadiusToSpawn, currentRadiusToSpawn);
+        positionToGo.z += Random.Range(-currentRadiusToSpawn, currentRadiusToSpawn);
         
         positionToGo.y = Terrain.activeTerrain.SampleHeight(positionToGo);
 
