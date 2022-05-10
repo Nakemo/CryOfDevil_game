@@ -1,40 +1,36 @@
 //using System.Collections;
+//using System;
 //using System.Collections.Generic;
 //using UnityEngine;
-//using System;
-//using UnityEngine.Audio;
 
 //public class AudioManager : MonoBehaviour
 //{
 //    public Sound[] sounds;
-//    public Sound[] walking;
-
+//    public Sound[] walkingSounds;
+//    public Sound[] runningSounds;
+//S
 //    void Awake()
 //    {
-//        SetupAudioSource(walking);        
+//        SetupAudioSource(sounds);
+//        SetupAudioSource(walkingSounds);
+//        SetupAudioSource(runningSounds);
 //    }
 
-//    public void Play(string name) 
+//    public void Play(string name)
 //    {
 //        var sound = Array.Find(sounds, sound => sound.soundName == name);
-//        sound._source.Play();
+//        sound.source.Play();
 //    }
 
-//    public void PlayStepSound() 
+//    public void PlayStepSound()
 //    {
-//        var source = RandomAudio(walking);
+//        var source = RandomAudio(walkingSounds);
 //        source.Play();
 //    }
 
-//    private AudioSource RandomAudio(Sound[] sounds) 
+//    public void PlayRunSound()
 //    {
-//        foreach (Sound sound in sounds) 
-//        {
-//            sound._source = gameObject.AddComponent<AudioSource>();
-//            sound._source.clip = sound.clip;
-//            sound._source.volume = sound.volume;
-//            sound._source.pitch = sound.pitch;
-//        }
+//        var source = RandomAudio(runningSounds);
+//        source.Play();
 //    }
-
 //}

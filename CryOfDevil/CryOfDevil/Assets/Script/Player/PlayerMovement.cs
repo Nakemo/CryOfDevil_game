@@ -41,14 +41,6 @@ public class PlayerMovement : MonoBehaviour
     public float recoverscare;
     //------------------
 
-    //----Soundcontroller---
-    public AudioClip walk;
-    public AudioClip Run;
-
-    public AudioSource effectSound;
-    public AudioClip enemySound;
-
-
     void Start()
     {
         _controller = GetComponent<CharacterController>();

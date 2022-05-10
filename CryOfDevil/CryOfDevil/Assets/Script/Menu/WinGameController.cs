@@ -8,6 +8,12 @@ public class WinGameController : MonoBehaviour
     [Header("Levels To Load")]
     public string nameLevel;
 
+    void start() 
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void MenuButton()
     {
         SceneManager.LoadScene(nameLevel);

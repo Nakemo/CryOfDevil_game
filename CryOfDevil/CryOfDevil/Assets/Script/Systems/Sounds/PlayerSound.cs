@@ -4,10 +4,16 @@
 
 //public class PlayerSound : MonoBehaviour
 //{
+//    [SerializeField]
 //    private AudioManager _audioManager;
 
-//    void StepSound() 
+//    void StepSound()
 //    {
 //        _audioManager.PlayStepSound();
+//    }
+
+//    void RunSound()
+//    {
+//        _audioManager.PlayRunSound();
 //    }
 //}

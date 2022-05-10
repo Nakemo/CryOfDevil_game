@@ -8042,7 +8042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: 0.011256324, z: -0, w: -0.99993664}
-  m_LocalPosition: {x: 516.1, y: 2.7319174, z: 710.7}
+  m_LocalPosition: {x: 506.72598, y: 2.7319174, z: 639.39}
   m_LocalScale: {x: 0.999927, y: 1, z: 1.0000868}
   m_Children:
   - {fileID: 734561814}
@@ -11857,7 +11857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb43a9a8b4e9f84ea9f3ea2f9a9e64e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 516.1637
+      value: 506.7897
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb43a9a8b4e9f84ea9f3ea2f9a9e64e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11865,7 +11865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb43a9a8b4e9f84ea9f3ea2f9a9e64e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 710.56714
+      value: 639.25714
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb43a9a8b4e9f84ea9f3ea2f9a9e64e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14411,12 +14411,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50102c8795d0ce04db5a88593c437bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusToSpawn: 20
-  minimusRadius: 3
+  radiusToSpawn: 30
+  minimusRadius: 4
   meshEnemy: {fileID: 1335283382}
   scareFactory: 0.05
   distanceToAfact: 30
-  timeToSpawn: 8
+  timeToSpawn: 9
 --- !u!1001 &1534590079
 PrefabInstance:
   m_ObjectHideFlags: 0
