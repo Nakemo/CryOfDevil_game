@@ -49,7 +49,24 @@ public class EnemyAI : MonoBehaviour
         }
 
         distancePlayer = Vector3.Distance(transform.position, player.transform.position);
-        if (distancePlayer < distanceToAfact && meshEnemy.isVisible) 
+
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        Ray tempRay = new Ray(transform.position, fwd);
+        bool rayCastFail = true;
+        RaycastHit hitInfo;
+
+
+        if (Physics.Raycast(tempRay, out hitInfo)) 
+        {
+            if (hitInfo.collider.tag == "Player") 
+            {
+                rayCastFail = false;
+            }
+        }
+
+
+        if (distancePlayer < distanceToAfact && meshEnemy.isVisible && !rayCastFail) 
         {
             player.scare += currentScareFactory / distancePlayer;
         }

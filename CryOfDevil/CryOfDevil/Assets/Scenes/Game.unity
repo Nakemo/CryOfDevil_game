@@ -2220,6 +2220,7 @@ GameObject:
   - component: {fileID: 323213945}
   - component: {fileID: 323213944}
   - component: {fileID: 323213943}
+  - component: {fileID: 323213942}
   m_Layer: 0
   m_Name: Page3
   m_TagString: Pages
@@ -2227,6 +2228,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &323213942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323213941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088cb0f6573f13248bf8e4e7f0d5e9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &323213943
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2298,7 +2311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323213941}
   m_LocalRotation: {x: -0.014837384, y: 0.70473945, z: -0.001127312, w: -0.70931023}
-  m_LocalPosition: {x: 248.858, y: 1.98, z: 393.645}
+  m_LocalPosition: {x: 248.858, y: 2.23, z: 393.645}
   m_LocalScale: {x: 0.32943088, y: 0.5173964, z: 0.9101}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4710,6 +4723,7 @@ GameObject:
   - component: {fileID: 524210293}
   - component: {fileID: 524210292}
   - component: {fileID: 524210291}
+  - component: {fileID: 524210290}
   m_Layer: 0
   m_Name: Page1
   m_TagString: Pages
@@ -4717,6 +4731,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &524210290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524210289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088cb0f6573f13248bf8e4e7f0d5e9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &524210291
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5611,7 +5637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 83520d55fddec4d46bfcd981b75fdf1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 648.04
+      value: 671.478
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 83520d55fddec4d46bfcd981b75fdf1f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5619,7 +5645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 83520d55fddec4d46bfcd981b75fdf1f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 604.85
+      value: 602.645
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 83520d55fddec4d46bfcd981b75fdf1f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14227,8 +14253,8 @@ MonoBehaviour:
   minimusRadius: 5
   meshEnemy: {fileID: 1335283382}
   scareFactory: 0.1
-  distanceToAfact: 20
-  timeToSpawn: 0
+  distanceToAfact: 30
+  timeToSpawn: 5
 --- !u!1001 &1534590079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17291,6 +17317,7 @@ GameObject:
   - component: {fileID: 1931330854}
   - component: {fileID: 1931330853}
   - component: {fileID: 1931330852}
+  - component: {fileID: 1931330851}
   m_Layer: 0
   m_Name: Page2
   m_TagString: Pages
@@ -17298,6 +17325,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1931330851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931330850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088cb0f6573f13248bf8e4e7f0d5e9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1931330852
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17369,7 +17408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931330850}
   m_LocalRotation: {x: -0.0020292928, y: -0.99968064, z: 0.003429484, w: -0.024953898}
-  m_LocalPosition: {x: 385.999, y: 16.011, z: 532.528}
+  m_LocalPosition: {x: 385.999, y: 16.262, z: 532.528}
   m_LocalScale: {x: 0.32943088, y: 0.5173964, z: 0.9101}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18782,6 +18821,7 @@ GameObject:
   - component: {fileID: 2048663327}
   - component: {fileID: 2048663326}
   - component: {fileID: 2048663325}
+  - component: {fileID: 2048663324}
   m_Layer: 0
   m_Name: Page4
   m_TagString: Pages
@@ -18789,6 +18829,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2048663324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048663323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088cb0f6573f13248bf8e4e7f0d5e9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &2048663325
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18860,7 +18912,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048663323}
   m_LocalRotation: {x: -0.09898131, y: -0.7253994, z: 0.01139935, w: -0.681079}
-  m_LocalPosition: {x: 647.6744, y: 2.1322, z: 604.9002}
+  m_LocalPosition: {x: 671.1124, y: 2.1322, z: 602.69525}
   m_LocalScale: {x: 0.23988497, y: 0.29148042, z: 0.9101}
   m_Children: []
   m_Father: {fileID: 0}
