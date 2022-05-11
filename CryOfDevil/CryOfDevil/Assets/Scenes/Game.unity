@@ -4331,7 +4331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_Range
-      value: 16.363663
+      value: 35.6853
       objectReference: {fileID: 0}
     - target: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_Enabled
@@ -4339,11 +4339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_Intensity
-      value: 4.95
+      value: 7.83
       objectReference: {fileID: 0}
     - target: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_SpotAngle
-      value: 78.13592
+      value: 55.11098
       objectReference: {fileID: 0}
     - target: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
       propertyPath: m_InnerSpotAngle
@@ -10150,10 +10150,6 @@ MonoBehaviour:
   feedBackEnemy: {fileID: 519657627}
   scare: 0
   recoverscare: 0.001
-  walk: {fileID: 8300000, guid: 1faaa4abb8e6568419387a4713e7d87e, type: 3}
-  Run: {fileID: 8300000, guid: 6ed8f06918374ca4aa81502a2ef72c26, type: 3}
-  effectSound: {fileID: 0}
-  enemySound: {fileID: 8300000, guid: b05bbc71a07a5a34ca65e201d6b3401d, type: 3}
 --- !u!95 &1185042832
 Animator:
   serializedVersion: 3
